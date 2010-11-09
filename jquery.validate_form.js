@@ -15,9 +15,9 @@
     });
 
     function toggleError(el) {
-      var p = el.closest(parent_el);
-      var e = p.hasClass(error_class);
-      p[e ? 'removeClass' : 'addClass'](error_class);
+      var p = el.closest(options.parent_el);
+      var e = p.hasClass(options.error_class);
+      p[e ? 'removeClass' : 'addClass'](options.error_class);
     }
 
     function isSet(value) {
