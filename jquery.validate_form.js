@@ -7,21 +7,19 @@
 
 (function($) {
   $.fn.validateForm = function(options) {
-
     options = $.extend({
       parent_el:      'div.form-row',
       error_class:    'error',
       validate_class: 'validate'
     });
 
-    function toggleError(el) {
+    function toggleError(el, valid) {
       var p = el.closest(options.parent_el);
-      var e = p.hasClass(options.error_class);
-      p[e ? 'removeClass' : 'addClass'](options.error_class);
+      p[valid ? 'removeClass' : 'addClass'](options.error_class);
     }
 
     function isSet(value) {
-      return typeof value !== 'undefined' && value !== '';
+      return (typeof value !== 'undefined' && value !== '');
     }
 
     return this.each(function() {
@@ -32,7 +30,7 @@
         self.find('.' + options.validate_class).each(function() {
           var el = $(this);
           valid = isSet(el.val());
-          toggleError(el);
+          toggleError(el, valid);
         });
         return valid;
       });
