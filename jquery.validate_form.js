@@ -21,7 +21,7 @@
     }
 
     function isSet(value) {
-      typeof value !== 'undefined' && value !== '';
+      return typeof value !== 'undefined' && value !== '';
     }
 
     return this.each(function() {
